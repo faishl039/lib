@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Book extends Model
+class Prosiding extends Model
 {
     use HasFactory;
 
-    /**
+        /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
@@ -17,10 +17,11 @@ class Book extends Model
     protected $fillable = [
         'title',
         'author',
+        'seminar_name',
+        'penyelenggara',
+        'date',
         'isbn',
-        'publisher',
         'cover_image',
-        'total_pages',
         'file',
     ];
 }

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Book extends Model
+class Article extends Model
 {
     use HasFactory;
 
@@ -17,10 +17,14 @@ class Book extends Model
     protected $fillable = [
         'title',
         'author',
-        'isbn',
+        'journal_name',
+        'journal_volume',
+        'journal_number',
+        'page',
+        'issn',
         'publisher',
         'cover_image',
-        'total_pages',
+        'doi',
         'file',
     ];
 }

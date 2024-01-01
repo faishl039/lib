@@ -9,3 +9,23 @@ body {
 * {
     font-family: "Montserrat", sans-serif;
 }
+
+.form-group {
+    @apply flex flex-col;
+}
+
+.form-group input {
+    @apply py-3.5 px-6 border rounded-md w-full outline-none;
+}
+
+.form-group input.error {
+    @apply border-red-600;
+}
+
+.form-group input:focus {
+    @apply border-blue-500;
+}
+
+.form-group .error {
+    @apply text-red-600 text-sm mt-1;
+}

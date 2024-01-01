@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Book;
+use App\Models\Paper;
 use Illuminate\Http\Request;
 
-class BookController extends Controller
+class PaperController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +20,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('books.create');
+        return view('papers.create');
     }
 
     /**
@@ -29,26 +29,21 @@ class BookController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'title' => 'required|max:255',
+            'title' => 'required',
             'author' => 'required',
-            'isbn' => 'required',
-            'publisher' => 'required',
-            'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'total_pages' => 'required',
-            'publisher' => 'required',
+            'seminar_name' => 'required',
+            'penyelenggara' => 'required',
+            'date' => 'required',
             'file' => 'required|mimes:pdf|max:5048',
         ]);
 
         $filename = time().'.'.$request->file->extension();  
-        $covername = time().'.'.$request->cover_image->extension();
          
         $request->file->move(public_path('uploads'), $filename);
-        $request->cover_image->move(public_path('uploads'), $covername);
 
         $validated['file'] = $filename;
-        $validated['cover_image'] = $covername;
 
-        Book::create($validated);
+        Paper::create($validated);
 
         return redirect('/');
     }
@@ -56,25 +51,25 @@ class BookController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Book $book)
+    public function show(Paper $paper)
     {
-        // get another book with the same author
-        $sameAuthor = Book::where('author', $book->author)
-        ->where('id', '!=', $book->id)
+        // get another paper with the same author
+        $sameAuthor = Paper::where('author', $paper->author)
+        ->where('id', '!=', $paper->id)
         ->limit(5)
         ->get();
-
-        $anotherBook = Book::where('id', '!=', $book->id)
+    
+        $anotherPaper = Paper::where('id', '!=', $paper->id)
             ->limit(5)
             ->get();
     
-        return view('books.show', compact('book', 'sameAuthor', 'anotherBook'));
+            return view('papers.show', compact('paper', 'sameAuthor', 'anotherPaper'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Book $book)
+    public function edit(string $id)
     {
         //
     }
@@ -82,7 +77,7 @@ class BookController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Book $book)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -90,13 +85,13 @@ class BookController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Book $book)
+    public function destroy(string $id)
     {
         //
     }
 
-    public function download(Book $book)
+    public function download(Paper $paper)
     {
-        return response()->download(public_path('uploads/'.$book->file));
+        return response()->download(public_path("uploads/{$paper->file}"));
     }
 }

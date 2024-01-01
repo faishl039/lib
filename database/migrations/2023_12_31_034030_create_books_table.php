@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('author');
             $table->string('isbn');
             $table->string('publisher');
-            $table->string('cover_image');
+            $table->string('cover_image')->nullable();
             $table->string('total_pages');
             $table->string('file');
             $table->timestamps();

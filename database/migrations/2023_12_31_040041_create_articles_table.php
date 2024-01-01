@@ -15,13 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('author');
-            $table->string('jornal_name');
+            $table->string('journal_name');
             $table->string('journal_volume');
             $table->string('journal_number')->nullable();
-            $table->string('journal_page');
-            $table->string('isbn');
+            $table->string('page');
+            $table->string('issn');
             $table->string('publisher');
-            $table->string('cover_image');
+            $table->string('cover_image')->nullable();
             $table->string('doi')->nullable();
             $table->string('file');
             $table->timestamps();

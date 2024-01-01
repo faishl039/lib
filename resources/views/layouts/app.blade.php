@@ -16,16 +16,16 @@
 
 <body>
     <div class="relative min-h-screen w-screen">
-        <div class="fixed top-0 left-0 w-full flex items-center justify-between bg-[#162B45] text-white pr-4 pl-4 h-[80px]">
-            <div class="text-white font-montserrat text-lg font-semibold">Sistem Manajemen [apa] Universitas sauco</div>
+        <div class="fixed top-0 left-0 z-20 w-full flex items-center justify-between bg-[#162B45] text-white pr-4 pl-4 h-[80px]">
+            <div class="text-white text-lg font-semibold">Sistem Manajemen [apa] Universitas sauco</div>
             <div class="menu flex space-x-4">
-                <a href="/" class="text-white font-montserrat text-lg font-semibold">Beranda</a>
-                <a href="/tambah/buku" class="text-white font-montserrat text-lg font-semibold">Tambah Karya</a>
-                <a href="/tentang-kami" class="text-white font-montserrat text-lg font-semibold">Tentang Kami</a>
+                <a href="/" class="text-white text-lg font-semibold">Beranda</a>
+                <a href="/tambah/buku" class="text-white text-lg font-semibold">Tambah Karya</a>
+                <a href="/tentang-kami" class="text-white text-lg font-semibold">Tentang Kami</a>
             </div>
         </div>
 
-        <main id="container" class="mt-[80px]">
+        <main id="container" class="absolute left-0 top-[80px] w-full h-full">
             @yield('content')
         </main>
     </div>

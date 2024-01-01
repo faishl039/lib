@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('paper', function (Blueprint $table) {
+        Schema::create('prosidings', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('author');
             $table->string('seminar_name');
             $table->string('penyelenggara');
             $table->date('date');
-            $table->string('cover_image');
+            $table->string('isbn');
+            $table->string('cover_image')->nullable();
             $table->string('file');
             $table->timestamps();
         });
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('paper');
+        Schema::dropIfExists('prosidings');
     }
 };
