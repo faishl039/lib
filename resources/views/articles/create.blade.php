@@ -30,7 +30,7 @@
             </div>
 
             <div class="form-group mb-5">
-                <input type="text" id="journal_volume" name="journal_volume" placeholder="Volume Jurnal"
+                <input type="text" id="journal_Volume" name="journal_volume" placeholder="Volume Jurnal"
                     value="{{ old('journal_volume') }}" class="@error('journal_volume') error @enderror">
                 @error('journal_volume')
                     <p class="error">{{ $message }}</p>

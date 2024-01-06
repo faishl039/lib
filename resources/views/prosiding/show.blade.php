@@ -50,7 +50,7 @@
 
     <div class="flex justify-center bg-blue-500 py-10">
         <div class="w-full max-w-screen-xl">
-            @if ($sameAuthor->isEmpty())
+            @if ($anotherProsiding->isEmpty())
                 <div class="text-center text-black">
                     <h1 class="text-xl font-bold">Tidak ada data</h1>
                 </div>

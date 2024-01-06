@@ -34,7 +34,6 @@
                 </div>
             </div>
 
-            {{-- if books empty show empty text  --}}
             @if ($books->isEmpty())
                 <div class="text-center text-black pt-10">
                     <h1 class="text-2xl font-bold">Tidak ada buku</h1>
@@ -58,7 +57,6 @@
                 </div>
             </div>
 
-            {{-- if papers empty show empty text  --}}
             @if ($papers->isEmpty())
                 <div class="text-center text-black pt-10">
                     <h1 class="text-2xl font-bold">Tidak ada makalah</h1>
@@ -82,7 +80,6 @@
                 </div>
             </div>
 
-            {{-- if papers empty show empty text  --}}
             @if ($articles->isEmpty())
                 <div class="text-center text-black pt-10">
                     <h1 class="text-2xl font-bold">Tidak ada artikel</h1>
@@ -106,7 +103,6 @@
                 </div>
             </div>
 
-            {{-- if papers empty show empty text  --}}
             @if ($prosidings->isEmpty())
                 <div class="text-center text-black pt-10">
                     <h1 class="text-2xl font-bold">Tidak ada prosiding</h1>
